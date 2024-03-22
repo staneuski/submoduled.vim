@@ -1,0 +1,6 @@
+[submodule "pack/editor/start/vim-lastplace"]
+	path = pack/editor/start/vim-lastplace
+	url = https://github.com/farmergreg/vim-lastplace.git
+[submodule "pack/core/start/vim-lastplace"]
+	path = pack/core/start/vim-lastplace
+	url = https://github.com/farmergreg/vim-lastplace.git
