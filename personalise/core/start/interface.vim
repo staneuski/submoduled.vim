@@ -63,7 +63,6 @@ let &t_ut=''
 
 ": Preserve neovim default behaviour {{{
 set autoindent
-set autoread
 set complete-=i
 set display=lastline
 set formatoptions=tcqj
@@ -79,6 +78,13 @@ set viminfo+=!
 ": }}}
 
 ": General settings {{{
+": Enable filetype plugins
+filetype indent plugin on
+
+": Set to auto read when a file is changed from the outside
+set autoread
+au FocusGained,BufEnter * silent! checktime
+
 ": Turn on the Wild menu
 set wildmenu
 
