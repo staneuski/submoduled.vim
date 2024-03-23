@@ -4,3 +4,6 @@
 [submodule "pack/core/start/vim-lastplace"]
 	path = pack/core/start/vim-lastplace
 	url = https://github.com/farmergreg/vim-lastplace.git
+[submodule "pack/core/start/which-key"]
+	path = pack/core/start/which-key
+	url = https://github.com/liuchengxu/vim-which-key.git
