@@ -186,4 +186,5 @@ let g:netrw_altv=1
 let g:netrw_banner=0 " hide the banner - `I` to show inside Netrw 
 let g:netrw_liststyle=3
 let g:netrw_keepdir=0 " https://groups.google.com/g/vim_use/c/6yqU3RX2CWA
+let g:netrw_localrmdir='rm -r'
 ": }}}
