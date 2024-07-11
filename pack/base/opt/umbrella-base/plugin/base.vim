@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:umbrella_core')
+if exists('g:packadd_umbrella_core')
   finish
 else
-  let g:umbrella_core = 'yes'
+  let g:packadd_umbrella_core = v:true
 endif
 
 packadd umbrella-colour

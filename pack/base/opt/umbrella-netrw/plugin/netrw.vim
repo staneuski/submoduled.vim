@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:umbrella_netrw')
+if exists('g:packadd_umbrella_netrw')
   finish
 else
-  let g:umbrella_netrw = 'yes'
+  let g:packadd_umbrella_netrw = v:true
 endif
 
 ": Hide the banner (use `I` to show)

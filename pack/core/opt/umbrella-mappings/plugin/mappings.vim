@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:umbrella_mappings')
+if exists('g:packadd_umbrella_mappings')
   finish
 else
-  let g:umbrella_mappings = 'yes'
+  let g:packadd_umbrella_mappings = v:true
 endif
 
 packadd which-key

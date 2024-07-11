@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:umbrella_interface')
+if exists('g:packadd_umbrella_interface')
   finish
 else
-  let g:umbrella_interface = 'yes'
+  let g:packadd_umbrella_interface = v:true
 endif
 
 ": Mouse support
