@@ -1,5 +1,5 @@
 [submodule "pack/core/start/which-key"]
-	path = pack/core/start/which-key
+	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
 [submodule "pack/core/start/lastplace"]
 	path = pack/core/start/lastplace
