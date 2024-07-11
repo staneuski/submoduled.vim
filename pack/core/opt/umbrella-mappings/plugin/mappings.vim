@@ -46,6 +46,14 @@ nnoremap <leader>e<tab> :Texplore<CR>
 let g:which_key_map.e.t = 'toggle'
 nnoremap <leader>et :Lexplore<CR>
 
+": <leader>c
+let g:which_key_map.c = { 'name' : '+code' }
+let g:which_key_map.c.c = 'comment in/out'
+map <C-/> gc
+map <leader>cc gc
+imap <C-/> <Esc>VgcA
+imap <leader>cc <Esc>VgcA
+
 ": <leader><Tab>
 let g:which_key_map['<Tab>'] = { 'name' : '+tab' }
 let g:which_key_map['<Tab>']['<Tab>'] = 'new'

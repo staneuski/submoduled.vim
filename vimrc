@@ -1,6 +1,10 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-packadd umbrella-core
+": base
+packadd umbrella-base
+
+": core
+packadd umbrella-mappings
 
 ": Syntax {{{
 ": OpenFOAM

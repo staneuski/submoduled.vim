@@ -14,7 +14,7 @@ if v:version > 800
 endif
 
 ": Show relative line numbers
-set relativenumber
+set number relativenumber
 
 ": Set regular expression engine automatically
 " set regexpengine=0

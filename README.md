@@ -1,5 +1,5 @@
 # umbrella.vim
 Minimal (or not so) vim experience with three levels:
-- `core` - closest to vanilla experience
-- `editor` - simplified code editor without dependencies
-- `code` - IDE
+1. `base` - closest to vanilla setup
+2. `core` - simplified editor without external dependencies
+3. `editor` - Umbrella vim editor
