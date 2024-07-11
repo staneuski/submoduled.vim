@@ -4,3 +4,6 @@
 [submodule "pack/core/start/lastplace"]
 	path = pack/core/start/lastplace
 	url = https://github.com/farmergreg/vim-lastplace.git
+[submodule "pack/core/start/sensible"]
+	path = pack/core/start/sensible
+	url = https://github.com/tpope/vim-sensible.git

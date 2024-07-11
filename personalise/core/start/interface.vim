@@ -66,15 +66,11 @@ set autoindent
 set complete-=i
 set display=lastline
 set formatoptions=tcqj
-set history=10000
 set langnoremap
 set laststatus=2
 set listchars=tab:>\ ,trail:-,nbsp:+
 set nrformats=hex
-set sessionoptions-=options
-set tabpagemax=50
 set tags=./tags;,tags
-set viminfo+=!
 ": }}}
 
 ": General settings {{{
@@ -82,11 +78,7 @@ set viminfo+=!
 filetype indent plugin on
 
 ": Set to auto read when a file is changed from the outside
-set autoread
 au FocusGained,BufEnter * silent! checktime
-
-": Turn on the Wild menu
-set wildmenu
 
 " Ignore compiled files
 set wildignore=*.o,*~,*.pyc
@@ -96,17 +88,12 @@ else
   set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
 endif
 
-": Always show current position
-set ruler
-
 ": Height of the command bar
 set cmdheight=1
 
 ": A buffer becomes hidden when it is abandoned
 set hidden
 
-": Configure backspace so it acts as it should act
-set backspace=eol,start,indent
 set whichwrap+=<,>,h,l
 
 ": Ignore case when searching
@@ -120,9 +107,6 @@ set cursorline
 
 ": Highlight search results
 set hlsearch
-
-": Makes search act like search in modern browsers
-set incsearch
 
 ": Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -144,9 +128,6 @@ set tm=500
 ": }}}
 
 ": Colors and fonts {{{
-": Enable syntax highlighting
-syntax enable
-
 ": Show line numbers
 set number
 
@@ -170,9 +151,6 @@ set encoding=utf8
 ": Text, tab and indent related {{{
 ": Use spaces instead of tabs
 set expandtab
-
-": Be smart when using tabs ;)
-set smarttab
 
 ": 1 tab == 4 spaces
 set shiftwidth=4
