@@ -20,3 +20,6 @@
 [submodule "pack/core/opt/which-key"]
 	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
+[submodule "pack/core/start/undotree"]
+	path = pack/core/start/undotree
+	url = https://github.com/mbbill/undotree.git

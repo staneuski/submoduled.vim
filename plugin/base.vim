@@ -210,7 +210,7 @@ endif
 :" }}}
 
 ": General settings {{{
-set langnoremap+
+set langnoremap
 
 ": https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
 let &t_SI.="\e[5 q" "SI = INSERT mode

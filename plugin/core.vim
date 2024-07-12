@@ -57,6 +57,11 @@ map <leader>cc gc
 imap <C-/> <Esc>VgcA
 imap <leader>cc <Esc>VgcA
 
+"mbbill/undotree
+let g:undotree_WindowLayout = 3
+let g:which_key_map.c.c = 'show undo history'
+nnoremap <leader>ch :UndotreeToggle<CR>
+
 ": <leader><Tab>
 let g:which_key_map['<Tab>'] = { 'name' : '+tab' }
 let g:which_key_map['<Tab>']['<Tab>'] = 'new'
