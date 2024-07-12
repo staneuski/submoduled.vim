@@ -8,7 +8,6 @@ endif
 
 packadd umbrella-colour
 packadd umbrella-interface
-packadd umbrella-netrw
 
 ": Preserve neovim defualts {{{
 set autoindent

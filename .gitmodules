@@ -7,6 +7,9 @@
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "pack/base/start/vinegar"]
+	path = pack/base/start/vinegar
+	url = https://github.com/tpope/vim-vinegar.git
 
 [submodule "pack/core/start/commentary"]
 	path = pack/core/start/commentary
@@ -14,3 +17,4 @@
 [submodule "pack/core/opt/which-key"]
 	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
+
