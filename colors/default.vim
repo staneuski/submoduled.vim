@@ -1,5 +1,8 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
+" Enable 256 colors palette
+set t_Co=256
+
 ": Full colour support {{{
 "   https://github.com/kovidgoyal/kitty/blob/master/docs/faq.rst#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
 "   https://vim-jp.org/vimdoc-en/term.html

@@ -4,11 +4,9 @@
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
-# [submodule "pack/base/start/vimrc"]
-# 	path = pack/base/start/vimrc
-# 	url = https://github.com/sheerun/vimrc.git 
-# 	branch = 73e4c4606bf54f0f22534afcb2320471566fbd4a
-# 	atclone = "rm -rf colors/"
+[submodule "pack/base/start/sensible"]
+	path = pack/base/start/sensible
+	url = https://github.com/tpope/vim-sensible.git
 [submodule "pack/base/start/vinegar"]
 	path = pack/base/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
