@@ -1,60 +1,24 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:packadd_umbrella_core')
+if exists('g:loaded_umbrella_base')
   finish
 else
-  let g:packadd_umbrella_core = v:true
+  let g:loaded_umbrella_base = v:true
 endif
-
-packadd umbrella-colour
-packadd umbrella-interface
-
-": Preserve neovim defualts {{{
-set autoindent
-set complete-=i
-set display=lastline
-set formatoptions=tcqj
-set langnoremap
-set laststatus=2
-set listchars=tab:>\ ,trail:-,nbsp:+
-set nrformats=hex
-set tags=./tags;,tags
-": }}}
 
 ": General settings {{{
+set langnoremap+
+
 ": Enable filetype plugins
 filetype indent plugin on
-
-": Set to auto read when a file is changed from the outside
-au FocusGained,BufEnter * silent! checktime
-
-" Ignore compiled files
-set wildignore=*.o,*~,*.pyc
-if has("win16") || has("win32")
-  set wildignore+=.git\*,.hg\*,.svn\*
-else
-  set wildignore+=*/.git/*,*/.hg/*,*/.svn/*,*/.DS_Store
-endif
 
 ": Height of the command bar
 set cmdheight=1
 
-": A buffer becomes hidden when it is abandoned
-set hidden
-
 set whichwrap+=<,>,h,l
-
-": Ignore case when searching
-" set ignorecase
-
-": When searching try to be smart about cases
-set smartcase
 
 ": Highlight current line
 set cursorline
-
-": Highlight search results
-set hlsearch
 
 ": Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -69,10 +33,20 @@ set showmatch
 set mat=2
 
 ": No annoying sound on errors
-set noerrorbells
-set novisualbell
 set t_vb=
 set tm=500
+
+": Mouse support
+set ttymouse=sgr
+if v:version > 800
+  set balloonevalterm
+endif
+
+": Show relative line numbers
+set number relativenumber
+
+": Set regular expression engine automatically
+" set regexpengine=0
 ": }}}
 
 ": File settings {{{
@@ -99,5 +73,4 @@ set tw=500
 
 set ai " auto indent
 set si " smart indent
-set wrap " wrap lines
 ": }}}

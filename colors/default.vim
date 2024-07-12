@@ -1,11 +1,5 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:packadd_umbrella_colour')
-  finish
-else
-  let g:packadd_umbrella_colour = v:true
-endif
-
 ": Full colour support {{{
 "   https://github.com/kovidgoyal/kitty/blob/master/docs/faq.rst#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
 "   https://vim-jp.org/vimdoc-en/term.html
