@@ -1,3 +1,6 @@
+[submodule "pack/base/start/lastplace"]
+	path = pack/base/start/lastplace
+	url = https://github.com/farmergreg/vim-lastplace.git
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
@@ -10,13 +13,12 @@
 	path = pack/base/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
 
+[submodule "pack/core/start/bufexplorer"]
+	path = pack/core/start/bufexplorer
+	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "pack/core/start/commentary"]
 	path = pack/core/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "pack/core/opt/which-key"]
 	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
-
-[submodule "pack/base/start/lastplace"]
-	path = pack/base/start/lastplace
-	url = https://github.com/farmergreg/vim-lastplace.git

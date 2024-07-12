@@ -17,6 +17,9 @@ vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
 let g:which_key_map = {}
 
+": <leader>K
+let g:which_key_map.K = 'man'
+
 ": <leader>b
 let g:which_key_map.b = { 'name' : '+buffer' }
 let g:which_key_map.b.b = 'new'
@@ -31,7 +34,7 @@ nnoremap <leader>bd :bdelete<CR>
 let g:which_key_map.b[']'] = 'next'
 nnoremap <leader>b] :bnext<CR>
 let g:which_key_map.b['['] = 'previous'
-nnoremap <leader>b[ :tabprevious<CR>
+nnoremap <leader>b[ :bprevious<CR>
 let g:which_key_map.b.n = 'next'
 nnoremap <leader>bn :bnext<CR>
 let g:which_key_map.b.p = 'previous'
