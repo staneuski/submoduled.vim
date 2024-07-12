@@ -1,6 +1,9 @@
 [submodule "pack/base/start/lastplace"]
 	path = pack/base/start/lastplace
 	url = https://github.com/farmergreg/vim-lastplace.git
+[submodule "pack/base/start/polyglot"]
+	path = pack/base/start/polyglot
+	url = https://github.com/sheerun/vim-polyglot.git
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
@@ -8,9 +11,6 @@
 [submodule "pack/core/start/commentary"]
 	path = pack/core/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/core/opt/org"]
-	path = pack/core/opt/org
-	url = https://github.com/axvr/org.vim.git
 [submodule "pack/core/opt/which-key"]
 	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
