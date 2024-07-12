@@ -9,6 +9,13 @@ endif
 ": General settings {{{
 set langnoremap+
 
+": https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
+let &t_SI.="\e[5 q" "SI = INSERT mode
+let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
+if v:version > 800
+  let &t_SR.="\e[4 q" "SR = REPLACE mode
+endif
+
 ": Enable filetype plugins
 filetype indent plugin on
 
