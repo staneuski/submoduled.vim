@@ -34,7 +34,7 @@ nnoremap Y y$
 
 " Highlight line under cursor. It helps with navigation.
 set cursorline
-set cursorlineopt=number
+" set cursorlineopt=number
 
 " Keep 8 lines above or below the cursor when scrolling.
 set scrolloff=8
