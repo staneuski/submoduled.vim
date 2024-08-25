@@ -143,8 +143,9 @@ cnoremap <expr> %% getcmdtype() == ':' ? expand('%:h').'/' : '%%'
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>
 
-" Set window title by default.
+" Update term title but restore old title after leaving Vim.
 set title
+set titleold=
 
 " Always focus on splited window.
 set splitright
