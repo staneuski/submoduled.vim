@@ -53,13 +53,13 @@ nnoremap <leader>et :Lexplore<CR>
 let g:which_key_map.c = { 'name' : '+code' }
 let g:which_key_map.c.c = 'comment in/out'
 map <C-/> gc
-map <leader>cc gc
+map <leader>cc gcc
 imap <C-/> <Esc>VgcA
 imap <leader>cc <Esc>VgcA
 
 "mbbill/undotree
 let g:undotree_WindowLayout = 3
-let g:which_key_map.c.c = 'show undo history'
+let g:which_key_map.c.h = 'show undo history'
 nnoremap <leader>ch :UndotreeToggle<CR>
 
 ": <leader><Tab>
