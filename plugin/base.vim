@@ -76,7 +76,7 @@ set nomodeline
 " Folding (modified)
 set foldmethod=indent
 set foldnestmax=3 "fold up to 3 levels
-" set nofoldenable "do not fold by default
+set nofoldenable "do not fold by default
 
 " Enable mouse for scrolling and window resizing.
 set mouse=a
