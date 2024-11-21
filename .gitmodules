@@ -1,18 +1,29 @@
 [submodule "pack/base/start/cool"]
 	path = pack/base/start/cool
 	url = https://github.com/romainl/vim-cool.git
+[submodule "pack/base/start/easyclip"]
+	path = pack/base/start/easyclip
+	url = https://github.com/svermeulen/vim-easyclip.git
+[submodule "pack/base/start/eunch"]
+	path = pack/base/start/eunch
+	url = https://github.com/tpope/vim-eunuch.git
 [submodule "pack/base/start/lastplace"]
 	path = pack/base/start/lastplace
 	url = https://github.com/farmergreg/vim-lastplace.git
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "pack/base/start/rsi"]
+	path = pack/base/start/rsi
+	url = https://github.com/tpope/vim-rsi.git
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
 [submodule "pack/base/start/vinegar"]
 	path = pack/base/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
+
+
 
 [submodule "pack/core/start/bufexplorer"]
 	path = pack/core/start/bufexplorer

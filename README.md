@@ -1,18 +1,19 @@
 # umbrella.vim
 Minimal (or not so) vim experience with three levels:
-1. `base` - closest to vanilla setup
-2. `core` - simplified editor without external dependencies
-3. `editor` - Umbrella vim editor
+1. `base`
+2. `core`
+3. `editor`
 
 <!--
-TODO: Set mappings up with `ftafter`
+install core junegunn/fzf.vim
+install core preservim/vim-indent-guides
+install core terryma/vim-multiple-cursors
+install core tpope/vim-unimpaired
 
-@depth core
-@plugin liuchengxu/vim-which-key
--->
-<!--
-TODO: Declare lazy init with `ftafter`
-
-@depth core
-@plugin waxvr/org.vim
+install editor rstacruz/vim-closer
+install editor editorconfig/editorconfig-vim
+install editor tpope/vim-endwise
+install editor airblade/vim-gitgutter
+install editor junegunn/gv.vim
+install editor tpope/vim-projectionist
 -->
