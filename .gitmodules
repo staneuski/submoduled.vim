@@ -16,7 +16,10 @@
 	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "pack/core/start/commentary"]
 	path = pack/core/start/commentary
-	url = https://github.com/tpope/vim-commentary.git
+    url = https://github.com/tpope/vim-commentary.git
+[submodule "pack/core/opt/papercolor"]
+	path = pack/core/opt/papercolor
+	url = https://github.com/NLKNguyen/papercolor-theme.git
 [submodule "pack/core/opt/which-key"]
 	path = pack/core/opt/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
