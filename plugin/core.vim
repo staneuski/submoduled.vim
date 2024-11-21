@@ -6,16 +6,6 @@ else
   let g:loaded_umbrella_core = v:true
 endif
 
-packadd papercolor
-colorscheme PaperColor
-let g:PaperColor_Theme_Options = {
-  \   'theme': {
-  \     'default': {
-  \       'transparent_background': 1
-  \     }
-  \   }
-  \ }
-
 packadd which-key
 
 ": <leader> {{{
