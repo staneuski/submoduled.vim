@@ -35,6 +35,9 @@
 [submodule "pack/core/start/obsession"]
 	path = pack/core/start/obsession
 	url = https://github.com/tpope/vim-obsession.git
+[submodule "pack/core/start/prosession"]
+	path = pack/core/start/prosession
+	url = https://github.com/dhruvasagar/vim-prosession.git
 [submodule "pack/core/start/undotree"]
 	path = pack/core/start/undotree
 	url = https://github.com/mbbill/undotree.git

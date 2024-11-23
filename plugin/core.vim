@@ -6,88 +6,109 @@ else
   let g:loaded_umbrella_core = v:true
 endif
 
+function! GetRootDir()
+  let cwd = expand('%:p:h')
+  " https://vi.stackexchange.com/a/20606
+  let dir = finddir('.git/..', cwd . ';')
+  if dir == ''
+    let dir = getcwd()
+  endif
+  return dir
+endfunction
+
 packadd which-key
 
-": <leader> {{{
 let g:mapleader = "\<Space>"
-let g:maplocalleader = ','
-
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
-vnoremap <silent> <leader> :<c-u>WhichKeyVisual '<Space>'<CR>
 
-let g:which_key_map = {}
+let g:maplocalleader = '\'
+nnoremap <silent> <localleader> :<c-u>WhichKey '\'<CR>
 
-": <leader>K
-let g:which_key_map.K = 'man'
+let g:which_key_map = {
+  \ 'e': 'Explorer (Root Dir)',
+  \ 'E': 'Explorer (cwd)',
+  \ 'K': 'Keywordprg',
+  \ ',': ['ToggleBufExplorer', 'Switch Buffer'],
+  \ '-': ['<C-W>s', 'Split Window Below'],
+  \ ':': ['history', 'Command History'],
+  \ '`': ['bprevious', 'Switch To Other Buffer'],
+  \ '|': ['<C-W>v', 'Split Window Right'],
+  \ ' ': 'Find Files (Root Dir)',
+\ }
+nnoremap <leader>e :execute 'Explore ' . GetRootDir()<CR>
+nnoremap <leader>E :Explore %:h<CR>
+nnoremap <leader><Space> :execute 'CtrlP ' . GetRootDir()<CR>
 
-": <leader>b
-let g:which_key_map.b = { 'name' : '+buffer' }
-let g:which_key_map.b.b = 'new'
-nnoremap <leader>bb :vnew<CR>
-nnoremap <leader>bq :close<CR>
-let g:which_key_map.b.w = 'safe'
-nnoremap <leader>bw :update<CR>
-let g:which_key_map.b.l = 'list'
-nnoremap <leader>bl :buffers<CR>
-let g:which_key_map.b.d = 'delete'
-nnoremap <leader>bd :bdelete<CR>
-let g:which_key_map.b[']'] = 'next'
-nnoremap <leader>b] :bnext<CR>
-let g:which_key_map.b['['] = 'previous'
-nnoremap <leader>b[ :bprevious<CR>
-let g:which_key_map.b.n = 'next'
-nnoremap <leader>bn :bnext<CR>
-let g:which_key_map.b.p = 'previous'
-nnoremap <leader>bp :bprevious<CR>
+": buffer {{{
+let g:which_key_map['b'] = {
+  \ 'name': '+buffer',
+  \ 'b': ['bprevious', 'Switch To Other Buffer'],
+  \ 'd': ['bdelete', 'Delete Buffer'],
+  \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
+  \ 'o': 'Delete Other Buffers',
+  \ 'w': ['update', 'Write Buffer'],
+  \ 'W': 'Write & Close Buffer',
+\ }
+" https://stackoverflow.com/a/60948057
+noremap <leader>bo :%bd\|e#\|bd#<cr>\|'"
 
-": <leader>e
-let g:which_key_map.e = { 'name' : '+explore' }
-let g:which_key_map.e.w = 'save, close and toggle'
-nnoremap <leader>ew :update! \| :Explore<CR>
-let g:which_key_map.e['<Tab>'] = 'new tab'
-nnoremap <leader>e<tab> :Texplore<CR>
-let g:which_key_map.e.t = 'toggle'
-nnoremap <leader>et :Lexplore<CR>
+function! WriteAndCloseBuffer()
+  update! 
+  let cwd = expand('%:h')
+  bdelete!
+  execute 'Explore ' . cwd
+  endif
+endfunction
+nnoremap <leader>bW :call WriteAndCloseBuffer()<CR>
+": }}}
 
-": <leader>c
-let g:which_key_map.c = { 'name' : '+code' }
-let g:which_key_map.c.c = 'comment in/out'
-map <C-/> gc
-map <leader>cc gcc
-imap <C-/> <Esc>VgcA
-imap <leader>cc <Esc>VgcA
-
-"mbbill/undotree
+": <leader>c {{{
+let g:which_key_map['c'] = {
+  \ 'name': '+code',
+  \ 'h': ['UndotreeToggle', 'Undo Explorer'],
+\ }
 let g:undotree_WindowLayout = 3
-let g:which_key_map.c.h = 'show undo history'
-nnoremap <leader>ch :UndotreeToggle<CR>
+map <C-/> gcc
+imap <C-/> <Esc>VgcA
 
-": <leader><Tab>
-let g:which_key_map['<Tab>'] = { 'name' : '+tab' }
-let g:which_key_map['<Tab>']['<Tab>'] = 'new'
-nnoremap <leader><tab><tab> :tabnew<CR>
-let g:which_key_map['<Tab>'].e = 'explore'
-nnoremap <leader><tab>e :Texplore<CR>
-let g:which_key_map['<Tab>'][']'] = 'next'
-nnoremap <leader><tab>] :tabNext<CR>
-let g:which_key_map['<Tab>']['['] = 'previous'
-nnoremap <leader><tab>[ :tabprevious<CR>
-let g:which_key_map['<Tab>'].n = 'next'
-nnoremap <leader><tab>n :tabNext<CR>
-let g:which_key_map['<Tab>'].p = 'previous'
-nnoremap <leader><tab>p :tabprevious<CR>
-let g:which_key_map['<Tab>'].q = 'close'
-nnoremap <leader><tab>q :tabclose<CR>
+let g:which_key_map['q'] = {
+  \ 'name': '+quit/session',
+  \ 'p': ['Obsession', 'Pause Session'],
+  \ 'd': "Don't Save Current Session",
+  \ 'q': ['quitall', 'Quit All'],
+  \ 'Q': 'Force Quit All',
+\ }
+let g:prosession_dir = '~/.cache/prosession/'
+nnoremap <leader>qq :quitall!<CR>
+nnoremap <leader>qd :silent! ProsessionDelete<CR>
+nnoremap <leader>qQ :silent! ProsessionDelete \| :quitall!<CR>
+": }}}
 
-": <leader>q
-let g:which_key_map.q = { 'name' : '+quit' }
-let g:which_key_map.q.q = 'close'
-nnoremap <leader>qq :quitall<CR>
-let g:which_key_map.q.Q = 'quit'
-nnoremap <leader>qQ :quitall!<CR>
+": file/find {{{
+let g:which_key_map['f'] = {
+  \ 'name': '+file/find',
+  \ 'b': ['CtrlPBuffer', 'Buffers'],
+  \ 'e': 'Explorer (Root Dir)',
+  \ 'E': 'Explorer (cwd)',
+  \ 'f': 'Find Files (Root Dir)',
+  \ 'F': 'Find Files (cwd)',
+  \ 'n': ['enew', 'New File'],
+  \ 'r': 'Recent',
+  \ 'R': 'Recent (cwd)',
+  \ 't': ['terminal', 'Terminal (Root Dir)'],
+  \ 'T': 'Terminal (cwd)',
+\ }
+nnoremap <leader>fe :execute 'Explore ' . GetRootDir()<CR>
+nnoremap <leader>fE :Explore %:h<CR>
+nnoremap <leader>ff :execute 'CtrlP ' . GetRootDir()<CR>
+nnoremap <leader>fF :CtrlP %:h<CR>
+nnoremap <leader>fr :execute 'CtrlPMRU ' . GetRootDir()<CR>
+nnoremap <leader>fR :CtrlPMRU %:h<CR>
+" https://vi.stackexchange.com/a/14533
+nnoremap <leader>fT :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR> 
+": }}}
 
 try
   call which_key#register('<Space>', "g:which_key_map")
 catch
 endtry
-": }}}
