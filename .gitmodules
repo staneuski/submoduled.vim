@@ -20,6 +20,9 @@
 	path = pack/base/start/vinegar
 	url = https://github.com/tpope/vim-vinegar.git
 
+[submodule "pack/core/start/ctrlp"]
+	path = pack/core/start/ctrlp
+	url = https://github.com/ctrlpvim/ctrlp.vim.git
 [submodule "pack/core/start/bufexplorer"]
 	path = pack/core/start/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git

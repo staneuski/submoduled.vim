@@ -5,7 +5,6 @@ Minimal (or not so) vim experience with three levels:
 3. `editor`
 
 <!--
-install core ctrlpvim/ctrlp.vim
 install core preservim/vim-indent-guides
 install core terryma/vim-multiple-cursors
 install core tpope/vim-unimpaired
