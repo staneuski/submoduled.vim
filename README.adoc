@@ -1,0 +1,40 @@
+= Vim Configuration Using Built-in `packadd`
+:toc: left
+:toclevels: 2
+
+== Overview
+This project provides a portable Vim configuration leveraging the built-in package management system (`packadd`) introduced in Vim 8.
+It aims to deliver a LazyVim-like experience without relying on external package managers such as `vim-plug`, `dein` and even `nvim`.
+=== Why This Project?
+While Neovim offers enhanced features and is highly recommended for most users, certain environments, such as the iOS' a-Shell terminal, https://bianshen00009.gitbook.io/a-guide-to-a-shell/basic-tutorials/configure-your-vim[only support Vim].
+This project ensures that you can maintain a consistent, portable development environment in such cases.
+=== Features
+- Uses Vim's native package system (`packadd`).
+- Syncs all plugins as Git submodules for portability.
+- Simplifies configuration for constrained or legacy environments.
+
+== Installation
+=== Prerequisites
+Ensure you have:
+- Vim 8.0 or higher
+- Git (for managing submodules)
+=== Clone the Repository
+```bash
+git clone --recurse-submodules https://github.com/staneuski/umbrella.vim.git ~/.vim
+```
+=== Update Plugins
+To update Git submodules (plugins):
+```bash
+git submodule update --remote --merge
+```
+
+// install core preservim/vim-indent-guides
+// install core terryma/vim-multiple-cursors
+// install core tpope/vim-unimpaired
+
+// install editor rstacruz/vim-closer
+// install editor editorconfig/editorconfig-vim
+// install editor tpope/vim-endwise
+// install editor airblade/vim-gitgutter
+// install editor junegunn/gv.vim
+// install editor tpope/vim-projectionist
