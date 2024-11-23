@@ -38,6 +38,9 @@
 [submodule "pack/core/start/prosession"]
 	path = pack/core/start/prosession
 	url = https://github.com/dhruvasagar/vim-prosession.git
+[submodule "pack/core/start/rainbow"]
+	path = pack/core/start/rainbow
+	url = https://github.com/junegunn/rainbow_parentheses.vim
 [submodule "pack/core/start/undotree"]
 	path = pack/core/start/undotree
 	url = https://github.com/mbbill/undotree.git
