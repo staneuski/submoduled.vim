@@ -30,7 +30,7 @@
 	path = pack/core/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
 [submodule "pack/core/opt/which-key"]
-	path = pack/core/opt/which-key
+	path = pack/core/start/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
 [submodule "pack/core/start/obsession"]
 	path = pack/core/start/obsession

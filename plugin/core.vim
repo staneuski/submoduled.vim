@@ -7,8 +7,6 @@ else
 endif
 
 ": Mappings {{{
-packadd which-key
-
 let g:mapleader = "\<Space>"
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
 
