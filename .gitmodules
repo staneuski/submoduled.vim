@@ -4,9 +4,6 @@
 [submodule "pack/base/start/dirvish"]
 	path = pack/base/start/dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
-[submodule "pack/base/start/dovish"]
-	path = pack/base/start/dovish
-	url = https://github.com/staneuski/vim-dirvish-dovish.git
 [submodule "pack/base/start/eunch"]
 	path = pack/base/start/eunch
 	url = https://github.com/tpope/vim-eunuch.git
