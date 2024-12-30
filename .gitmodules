@@ -1,6 +1,12 @@
 [submodule "pack/base/start/cool"]
 	path = pack/base/start/cool
 	url = https://github.com/romainl/vim-cool.git
+[submodule "pack/base/start/dirvish"]
+	path = pack/base/start/dirvish
+	url = https://github.com/justinmk/vim-dirvish.git
+[submodule "pack/base/start/dovish"]
+	path = pack/base/start/dovish
+	url = https://github.com/staneuski/vim-dirvish-dovish.git
 [submodule "pack/base/start/eunch"]
 	path = pack/base/start/eunch
 	url = https://github.com/tpope/vim-eunuch.git
@@ -16,9 +22,6 @@
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
-[submodule "pack/base/start/vinegar"]
-	path = pack/base/start/vinegar
-	url = https://github.com/tpope/vim-vinegar.git
 
 [submodule "pack/core/start/ctrlp"]
 	path = pack/core/start/ctrlp
@@ -29,9 +32,6 @@
 [submodule "pack/core/start/commentary"]
 	path = pack/core/start/commentary
 	url = https://github.com/tpope/vim-commentary.git
-[submodule "pack/core/opt/which-key"]
-	path = pack/core/start/which-key
-	url = https://github.com/liuchengxu/vim-which-key.git
 [submodule "pack/core/start/obsession"]
 	path = pack/core/start/obsession
 	url = https://github.com/tpope/vim-obsession.git
@@ -44,3 +44,6 @@
 [submodule "pack/core/start/undotree"]
 	path = pack/core/start/undotree
 	url = https://github.com/mbbill/undotree.git
+[submodule "pack/core/start/which-key"]
+	path = pack/core/start/which-key
+	url = https://github.com/liuchengxu/vim-which-key.git

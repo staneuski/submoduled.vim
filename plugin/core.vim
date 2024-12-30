@@ -33,8 +33,8 @@ let g:which_key_map = {
   \ '|': ['<C-W>v', 'Split Window Right'],
   \ ' ': 'Find Files (Root Dir)',
 \ }
-nnoremap <leader>e :execute 'Explore ' . GetRootDir()<CR>
-nnoremap <leader>E :Explore %:h<CR>
+nnoremap <leader>e :execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader>E :Dirvish %:h<CR>
 nnoremap <leader><Space> :execute 'CtrlP ' . GetRootDir()<CR>
 
 ": buffer
@@ -42,7 +42,7 @@ function! WriteAndCloseBuffer()
   update! 
   let cwd = expand('%:h')
   bdelete!
-  execute 'Explore ' . cwd
+  execute 'Dirvish ' . cwd
   endif
 endfunction
 let g:which_key_map['b'] = {
@@ -83,8 +83,8 @@ let g:which_key_map['f'] = {
   \ 't': ['terminal', 'Terminal (Root Dir)'],
   \ 'T': 'Terminal (cwd)',
 \ }
-nnoremap <leader>fe :execute 'Explore ' . GetRootDir()<CR>
-nnoremap <leader>fE :Explore %:h<CR>
+nnoremap <leader>fe :execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader>fE :Dirvish %:h<CR>
 nnoremap <leader>ff :execute 'CtrlP ' . GetRootDir()<CR>
 nnoremap <leader>fF :CtrlP %:h<CR>
 nnoremap <leader>fr :execute 'CtrlPMRU ' . GetRootDir()<CR>

@@ -1,7 +1,10 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
+": core plugins {{{
+": junegunn/rainbow_parentheses
 autocmd VimEnter * RainbowParentheses
 let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
+": }}}
 
 ": Syntax {{{
 ": OpenFOAM

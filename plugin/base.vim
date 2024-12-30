@@ -6,7 +6,7 @@ else
   let g:loaded_umbrella_base = v:true
 endif
 
-:" https://github.com/sheerun/vimrc/blob/73e4c4606bf54f0f22534afcb2320471566fbd4a/plugin/vimrc.vim#L148-L356 {{{
+": https://github.com/sheerun/vimrc/blob/73e4c4606bf54f0f22534afcb2320471566fbd4a/plugin/vimrc.vim#L148-L356 {{{
 
 " Indent using two spaces.
 if &tabstop == 8 && &shiftwidth == 8
@@ -281,4 +281,8 @@ set tw=500
 
 set ai "auto indent
 set si "smart indent
+": }}}
+
+": roginfarrer/vim-dirvish-dovish {{{
+let g:dirvish_mode = ':sort ,^.*[\/],'
 ": }}}
