@@ -142,7 +142,7 @@ let g:which_key_map['<Tab>'] = {
 nnoremap <leader><tab>E :tabnew \| :execute 'Dirvish ' . GetRootDir()<CR>
 
 ": quit/session
-let g:prosession_dir = '~/Documents/.cache/prosession/'
+let g:prosession_dir = '~/.cache/prosession/'
 let g:which_key_map['q'] = {
   \ 'name': '+quit/session',
   \ 'p': ['Obsession', 'Pause Session'],
