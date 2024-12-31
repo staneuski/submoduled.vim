@@ -120,7 +120,7 @@ let g:which_key_map['w'] = {
 let g:which_key_map['<Tab>'] = {
   \ 'name': '+tab',
   \ '<Tab>': ['tabnew', 'New Tab'],
-  \ 'e': [':tablast | :Texplore', 'Tab with Explorer (Root Dir)'],
+  \ 'e': [':tabnew | :Dirvish', 'Tab with Explorer (Root Dir)'],
   \ 'E': 'Tab with Explorer (cwd)',
   \ 'd': ['tabclose', 'Delete Tab'],
   \ 'h': ['tabprevious', 'Go to the left tab'],
@@ -139,10 +139,10 @@ let g:which_key_map['<Tab>'] = {
   \ '9': [':tabnext 9', 'which_key_ignore'],
   \ '0': ['tablast', 'Last tab'],
 \ }
-nnoremap <leader><tab>E :tablast \| :Texplore %:h<CR>
+nnoremap <leader><tab>E :tabnew \| :execute 'Dirvish ' . GetRootDir()<CR>
 
 ": quit/session
-let g:prosession_dir = '~/.cache/prosession/'
+let g:prosession_dir = '~/Documents/.cache/prosession/'
 let g:which_key_map['q'] = {
   \ 'name': '+quit/session',
   \ 'p': ['Obsession', 'Pause Session'],
