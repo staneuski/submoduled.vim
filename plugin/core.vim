@@ -142,7 +142,12 @@ let g:which_key_map['<Tab>'] = {
 nnoremap <leader><tab>E :tabnew \| :execute 'Dirvish ' . GetRootDir()<CR>
 
 ": quit/session
-let g:prosession_dir = '~/.cache/prosession/'
+if !empty($XDG_CONFIG_HOME)
+  let g:prosession_dir = expand('$XDG_CONFIG_HOME/prosession')
+else
+  let g:prosession_dir = expand('$HOME/.cache/prosession')
+endif
+
 let g:which_key_map['q'] = {
   \ 'name': '+quit/session',
   \ 'p': ['Obsession', 'Pause Session'],
