@@ -283,6 +283,10 @@ set ai "auto indent
 set si "smart indent
 ": }}}
 
+": justinmk/vim-dirvish {{{
+let g:dirvish_mode = ':sort ,^.*[\/],'
+": }}}
+
 ": unblevable/quick-scope.git {{{
 let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 ":}}}
