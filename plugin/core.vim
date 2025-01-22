@@ -161,3 +161,8 @@ try
 catch
 endtry
 ": }}}
+
+": tpope/vim-commentary {{{
+": prefer '//' comment-style syntax
+autocmd FileType c,cpp,csharp,java,javascript,typescript,kotlin,swift,php,go,scala,groovy,rust,d,haxe,dart,objc,glsl,hlsl,processing setlocal commentstring=//\ %s
+": }}}
