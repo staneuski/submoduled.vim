@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:loaded_umbrella_base')
+if exists('g:loaded_submoduled_base')
   finish
 else
-  let g:loaded_umbrella_base = v:true
+  let g:loaded_submoduled_base = v:true
 endif
 
 ": https://github.com/sheerun/vimrc/blob/73e4c4606bf54f0f22534afcb2320471566fbd4a/plugin/vimrc.vim#L148-L356 {{{

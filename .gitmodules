@@ -40,7 +40,7 @@
 	url = https://github.com/dhruvasagar/vim-prosession.git
 [submodule "pack/core/start/rainbow"]
 	path = pack/core/start/rainbow
-	url = https://github.com/junegunn/rainbow_parentheses.vim
+	url = https://github.com/junegunn/rainbow_parentheses.vim.git
 [submodule "pack/core/start/undotree"]
 	path = pack/core/start/undotree
 	url = https://github.com/mbbill/undotree.git

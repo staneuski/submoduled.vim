@@ -23,7 +23,7 @@ Ensure you have:
 
 === Clone the Repository
 ```bash
-git clone --recurse-submodules https://github.com/staneuski/umbrella.vim.git ~/.vim
+git clone --recurse-submodules https://github.com/staneuski/submoduled.vim.git ~/.vim
 ```
 
 === Update Plugins

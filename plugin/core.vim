@@ -1,9 +1,9 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
-if exists('g:loaded_umbrella_core')
+if exists('g:loaded_submoduled_core')
   finish
 else
-  let g:loaded_umbrella_core = v:true
+  let g:loaded_submoduled_core = v:true
 endif
 
 ": Mappings {{{
