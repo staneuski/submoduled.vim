@@ -13,15 +13,15 @@
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
-[submodule "pack/base/start/quick-scope"]
-	path = pack/base/start/quick-scope
-	url = https://github.com/unblevable/quick-scope.git
 [submodule "pack/base/start/rsi"]
 	path = pack/base/start/rsi
 	url = https://github.com/tpope/vim-rsi.git
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "pack/base/start/sneak"]
+	path = pack/base/start/sneak
+	url = https://github.com/justinmk/vim-sneak.git
 
 [submodule "pack/core/start/ctrlp"]
 	path = pack/core/start/ctrlp

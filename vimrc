@@ -1,5 +1,8 @@
 " vim:fileencoding=utf-8:foldmethod=marker
 
+": base plugins {{{
+": }}}
+
 ": core plugins {{{
 ": junegunn/rainbow_parentheses
 autocmd VimEnter * RainbowParentheses
