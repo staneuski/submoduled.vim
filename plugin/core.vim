@@ -3,7 +3,7 @@
 if exists('g:loaded_submoduled_core')
   finish
 else
-  let g:loaded_submoduled_core = v:true
+  let g:loaded_submoduled_core = 1
 endif
 
 ": Mappings {{{

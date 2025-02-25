@@ -3,7 +3,7 @@
 if exists('g:loaded_submoduled_base')
   finish
 else
-  let g:loaded_submoduled_base = v:true
+  let g:loaded_submoduled_base = 1
 endif
 
 ": https://github.com/sheerun/vimrc/blob/73e4c4606bf54f0f22534afcb2320471566fbd4a/plugin/vimrc.vim#L148-L356 {{{
