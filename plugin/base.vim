@@ -202,9 +202,9 @@ end
 " Also set better lightline layout
 if !has_key(g:lightline, 'active')
   let g:lightline['active'] = {
-        \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-        \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
-        \ }
+    \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
+    \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
+    \ }
   let g:lightline['component'] = { 'filetype': '%{&filetype}' }
   let g:lightline['component_function'] = { 'gitbranch': 'fugitive#head' }
 endif
@@ -248,9 +248,11 @@ set t_vb=
 set tm=500
 
 ": Mouse support
-set ttymouse=sgr
-if v:version > 800
-  set balloonevalterm
+if !has('nvim')
+  set ttymouse=sgr
+  if v:version > 800
+    set balloonevalterm
+  endif
 endif
 
 ": Set regular expression engine automatically
