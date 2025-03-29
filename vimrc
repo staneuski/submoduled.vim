@@ -10,8 +10,12 @@ let g:rainbow#pairs = [['(', ')'], ['[', ']'], ['{', '}']]
 ": }}}
 
 ": Style {{{
-" Enable full colour palette
+": Enable full colour palette
 set t_Co=256
+
+": Theme
+set termguicolors
+colorscheme tokyonight
 ": }}}
 
 ": Syntax {{{
