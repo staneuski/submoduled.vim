@@ -20,7 +20,8 @@ colorscheme tokyonight
 
 ": Syntax {{{
 ": OpenFOAM
-autocmd BufNewFile,BufRead *.orig,*Dict,*Properties,*Properties.*,*Fn,fv* set syntax=cpp
 autocmd BufNewFile,BufRead *.eb set syntax=python
+autocmd BufNewFile,BufRead *.ges,*.slurm set syntax=bash
+autocmd BufNewFile,BufRead *.orig,*Dict,*Properties,*Properties.*,*Fn,fv* set syntax=cpp
 autocmd BufNewFile,BufRead *.pvsm* set syntax=xml
 ": }}}
