@@ -5,5 +5,6 @@ $ vim () { nvim -u ~/.config/vim/init.lua "$@" }
 vim.cmd([[
   set runtimepath^=~/.vim runtimepath+=~/.vim/after
   let &packpath = &runtimepath
+  silent! source ~/.vim/vimrc
   silent! source ~/.vimrc
 ]])
