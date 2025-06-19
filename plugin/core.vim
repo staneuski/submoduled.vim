@@ -103,7 +103,7 @@ let g:which_key_map['q'] = {
   \ 'name': '+quit/session',
   \ 'd': [':silent! ProsessionDelete', "Don't Save Current Session"],
   \ 'q': [':quitall!', 'Quit All'],
-
+  \
   \ 'Q': [':silent! ProsessionDelete | :quitall!', 'Force Quit All'],
   \ 'p': ['Obsession', 'Pause Session'],
 \ }
@@ -128,7 +128,7 @@ let g:which_key_map['w'] = {
   \ '<': ['<C-W>5<', 'Decrease width'],
   \ '=': ['<C-W>=', 'Equally high and wide'],
   \ '>': ['<C-W>5>', 'Increase width'],
-
+  \
   \ '<Tab>': [':tab sball', 'which_key_ignore'],
   \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
 \ }
@@ -143,7 +143,7 @@ let g:which_key_map['<Tab>'] = {
   \ '[': ['tabprevious', 'Previous Tab'],
   \ ']': ['tabnext', 'Next Tab'],
   \ '<Tab>': ['tabnew', 'New Tab'],
-
+  \
   \ 'e': [':tabnew | :Dirvish', 'Tab with Explorer (Root Dir)'],
   \ 'E': 'Tab with Explorer (cwd)',
   \ '1': [':tabnext 1', 'which_key_ignore'],
