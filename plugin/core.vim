@@ -6,6 +6,13 @@ else
   let g:loaded_submoduled_core = 1
 endif
 
+": Directory specifications {{{
+let s:cache_dir = !empty($XDG_CACHE_HOME) ? expand('$XDG_CACHE_HOME') : expand('$HOME/.cache')
+let s:proj_name = has('nvim') ? 'nvim' : 'vim'
+
+let g:prosession_dir = s:cache_dir . '/' . s:proj_name . '/prosession'
+": }}}
+
 ": Mappings {{{
 let g:mapleader = "\<Space>"
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -50,10 +57,7 @@ let g:which_key_map['b'] = {
   \ 'b': ['bprevious', 'Switch to Other Buffer'],
   \ 'd': ['bdelete', 'Delete Buffer'],
   \ 'D': ['<C-W>c', 'Delete Buffer and Window'],
-  \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
   \ 'o': 'Delete Other Buffers',
-  \ 'w': ['update', 'Write Buffer'],
-  \ 'W': 'Write & Close Buffer',
 \ }
 " https://stackoverflow.com/a/60948057
 noremap <leader>bo :%bdelete \| e# \| bdelete#<cr> \| '"
@@ -93,12 +97,6 @@ nnoremap <leader>fR :CtrlPMRU %:h<CR>
 nnoremap <leader>fT :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR> 
 
 ": quit/session
-if !empty($XDG_CACHE_HOME)
-  let g:prosession_dir = expand('$XDG_CACHE_HOME/prosession')
-else
-  let g:prosession_dir = expand('$HOME/.cache/prosession')
-endif
-
 let g:which_key_map['q'] = {
   \ 'name': '+quit/session',
   \ 'd': [':silent! ProsessionDelete', "Don't Save Current Session"],
