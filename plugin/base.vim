@@ -71,14 +71,19 @@ if &tabstop == 8 && &shiftwidth == 8
 endif
 
 " Enable undofile and set undodir and backupdir
-let s:dir = has('win32') ? '$APPDATA/Vim' : isdirectory($HOME.'/Library') ? '~/Library/Vim' : empty($XDG_DATA_HOME) ? '~/.local/share/vim' : '$XDG_DATA_HOME/vim'
-let &backupdir = expand(s:dir) . '/backup//'
-let &undodir = expand(s:dir) . '/undo//'
+let s:basedatadir = has("win32") ? "$APPDATA"
+  \ : isdirectory($HOME . "/Library") ? "$HOME/Library"
+    \ : empty($XDG_DATA_HOME) ? "$HOME/.local/share" : "$XDG_DATA_HOME"
+let g:datadir = expand(s:basedatadir . "/" . (has("nvim") ? "nvim" : "vim"))
+
+let &backupdir = expand(g:datadir) . '/backup//'
+let &undodir = expand(g:datadir) . '/undo//'
 set undofile
 
 " Automatically create directories for backup and undo files.
-if !isdirectory(expand(s:dir))
-  call system("mkdir -p " . expand(s:dir) . "/{backup,undo}")
+if !isdirectory(expand(g:datadir))
+  call system("mkdir -p " . expand(&backupdir))
+  call system("mkdir -p " . expand(&undodir))
 end
 
 " Keep flags when repeating last substitute command.

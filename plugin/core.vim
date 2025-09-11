@@ -6,13 +6,6 @@ else
   let g:loaded_submoduled_core = 1
 endif
 
-": Directory specifications {{{
-let s:cache_dir = !empty($XDG_CACHE_HOME) ? expand('$XDG_CACHE_HOME') : expand('$HOME/.cache')
-let s:proj_name = has('nvim') ? 'nvim' : 'vim'
-
-let g:prosession_dir = s:cache_dir . '/' . s:proj_name . '/prosession'
-": }}}
-
 ": Mappings {{{
 let g:mapleader = "\<Space>"
 nnoremap <silent> <leader> :<c-u>WhichKey '<Space>'<CR>
@@ -33,7 +26,7 @@ let g:which_key_map = {
   \ 'e': 'Explorer (Root Dir)',
   \ 'E': 'Explorer (cwd)',
   \ 'K': 'Keywordprg',
-  \ ',': ['ToggleBufExplorer', 'Buffers'],
+  \ ',': ['ToggleBufExplorer', 'Switch Buffer'],
   \ '-': ['<C-W>s', 'Split Window Below'],
   \ ':': ['history', 'Command History'],
   \ '`': ['bprevious', 'Switch To Other Buffer'],
@@ -54,14 +47,17 @@ function! WriteAndCloseBuffer()
 endfunction
 let g:which_key_map['b'] = {
   \ 'name': '+buffer',
-  \ 'b': ['bprevious', 'Switch to Other Buffer'],
+  \ 'b': ['bprevious', 'Switch To Other Buffer'],
   \ 'd': ['bdelete', 'Delete Buffer'],
-  \ 'D': ['<C-W>c', 'Delete Buffer and Window'],
+  \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
   \ 'o': 'Delete Other Buffers',
+  \ 'w': ['update', 'Write Buffer'],
+  \ 'W': 'Write & Close Buffer',
 \ }
 " https://stackoverflow.com/a/60948057
-noremap <leader>bo :%bdelete \| e# \| bdelete#<cr> \| '"
+noremap <leader>bo :%bd\|e#\|bd#<cr>\|'"
 nnoremap <leader>bW :call WriteAndCloseBuffer()<CR>
+
 
 ": <leader>c 
 let g:which_key_map['c'] = {
@@ -96,15 +92,6 @@ nnoremap <leader>fR :CtrlPMRU %:h<CR>
 " https://vi.stackexchange.com/a/14533
 nnoremap <leader>fT :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR> 
 
-": quit/session
-let g:which_key_map['q'] = {
-  \ 'name': '+quit/session',
-  \ 'd': [':silent! ProsessionDelete', "Don't Save Current Session"],
-  \ 'q': [':quitall!', 'Quit All'],
-  \
-  \ 'Q': [':silent! ProsessionDelete | :quitall!', 'Force Quit All'],
-  \ 'p': ['Obsession', 'Pause Session'],
-\ }
 
 ": window
 let g:which_key_map['w'] = {
@@ -115,9 +102,9 @@ let g:which_key_map['w'] = {
   \ 'k': ['<C-W>k', 'Go to the up window'],
   \ 'l': ['<C-W>l', 'Go to the right window'],
   \ 'o': ['only', 'Close all other windows'],
-  \ 'q': ['<C-W>c', 'Quit a window'],
   \ 's': ['<C-W>s', 'Split window'],
-  \ 'T': [':tab sball', 'Break out into a new tab'],
+  \ 't': [':tab sball', 'Break out into a new tab'],
+  \ '<Tab>': [':tab sball', 'which_key_ignore'],
   \ 'v': ['<C-W>v', 'Split window vertically'],
   \ 'w': ['<C-W>', 'Switch windows'],
   \ 'x': ['<C-W>x', 'Swap current with next'],
@@ -126,24 +113,21 @@ let g:which_key_map['w'] = {
   \ '<': ['<C-W>5<', 'Decrease width'],
   \ '=': ['<C-W>=', 'Equally high and wide'],
   \ '>': ['<C-W>5>', 'Increase width'],
-  \
-  \ '<Tab>': [':tab sball', 'which_key_ignore'],
-  \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
 \ }
+
 
 ": tab
 let g:which_key_map['<Tab>'] = {
   \ 'name': '+tab',
-  \ 'd': ['tabclose', 'Close Tab'],
-  \ 'f': ['tabfirst', 'First Tab'],
-  \ 'l': ['tablast', 'Last Tab'],
-  \ 'o': ['tabonly', 'Close Other Tabs'],
-  \ '[': ['tabprevious', 'Previous Tab'],
-  \ ']': ['tabnext', 'Next Tab'],
   \ '<Tab>': ['tabnew', 'New Tab'],
-  \
   \ 'e': [':tabnew | :Dirvish', 'Tab with Explorer (Root Dir)'],
   \ 'E': 'Tab with Explorer (cwd)',
+  \ 'd': ['tabclose', 'Delete Tab'],
+  \ 'h': ['tabprevious', 'Go to the left tab'],
+  \ 'l': ['tabnext', 'Go to the right tab'],
+  \ 'o': ['tabonly', 'Close all other tabs'],
+  \ 'w': ['tabonly', 'which_key_ignore'],
+  \ '`': ['tabfirst', 'First tabs'],
   \ '1': [':tabnext 1', 'which_key_ignore'],
   \ '2': [':tabnext 2', 'which_key_ignore'],
   \ '3': [':tabnext 3', 'which_key_ignore'],
@@ -153,8 +137,20 @@ let g:which_key_map['<Tab>'] = {
   \ '7': [':tabnext 7', 'which_key_ignore'],
   \ '8': [':tabnext 8', 'which_key_ignore'],
   \ '9': [':tabnext 9', 'which_key_ignore'],
+  \ '0': ['tablast', 'Last tab'],
 \ }
 nnoremap <leader><tab>E :tabnew \| :execute 'Dirvish ' . GetRootDir()<CR>
+
+": quit/session
+let g:prosession_dir = expand(g:datadir . "/prosession")
+
+let g:which_key_map['q'] = {
+  \ 'name': '+quit/session',
+  \ 'p': ['Obsession', 'Pause Session'],
+  \ 'd': [':silent! ProsessionDelete', "Don't Save Current Session"],
+  \ 'q': [':quitall!', 'Quit All'],
+  \ 'Q': [':silent! ProsessionDelete | :quitall!', 'Force Quit All'],
+\ }
 
 try
   call which_key#register('<Space>', "g:which_key_map")
