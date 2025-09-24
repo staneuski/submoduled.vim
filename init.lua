@@ -1,10 +1,10 @@
 --[[
 Share config btw. vim & nvim ( https://vi.stackexchange.com/a/39957 ) or
-$ vim () { nvim -u ~/.config/vim/init.lua "$@" }
+$ vim () { nvim -u $HOME/.config/vim/init.lua "$@" }
 ]]
 vim.cmd([[
-  set runtimepath^=~/.vim runtimepath+=~/.vim/after
+  set runtimepath^=$HOME/.config/.vim runtimepath+=$HOME/.config/.vim/after
   let &packpath = &runtimepath
-  silent! source ~/.vim/vimrc
-  silent! source ~/.vimrc
+  silent! source $HOME/.config/.vim/vimrc
+  silent! source $HOME/.config/.vimrc
 ]])
