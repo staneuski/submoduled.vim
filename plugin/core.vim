@@ -23,15 +23,15 @@ function! GetRootDir()
   return dir
 endfunction
 let g:which_key_map = {
-  \ 'e': 'Explorer (Root Dir)',
+  \ 'e': 'Explorer (root dir)',
   \ 'E': 'Explorer (cwd)',
   \ 'K': 'Keywordprg',
   \ ',': ['ToggleBufExplorer', 'Switch Buffer'],
   \ '-': ['<C-W>s', 'Split Window Below'],
   \ ':': ['history', 'Command History'],
-  \ '`': ['bprevious', 'Switch To Other Buffer'],
+  \ '`': ['bprevious', 'Switch to Other Buffer'],
   \ '|': ['<C-W>v', 'Split Window Right'],
-  \ ' ': 'Find Files (Root Dir)',
+  \ ' ': 'Find Files (root dir)',
 \ }
 nnoremap <leader>e :execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>E :Dirvish %:h<CR>
@@ -39,7 +39,7 @@ nnoremap <leader><Space> :execute 'CtrlP ' . GetRootDir()<CR>
 
 ": buffer
 function! WriteAndCloseBuffer()
-  update! 
+  update!
   let cwd = expand('%:h')
   bdelete!
   execute 'Dirvish ' . cwd
@@ -47,19 +47,19 @@ function! WriteAndCloseBuffer()
 endfunction
 let g:which_key_map['b'] = {
   \ 'name': '+buffer',
-  \ 'b': ['bprevious', 'Switch To Other Buffer'],
+  \ 'b': ['bprevious', 'Switch to Other Buffer'],
   \ 'd': ['bdelete', 'Delete Buffer'],
   \ 'e': ['ToggleBufExplorer', 'Buffer Explorer'],
   \ 'o': 'Delete Other Buffers',
   \ 'w': ['update', 'Write Buffer'],
-  \ 'W': 'Write & Close Buffer',
+  \ 'W': 'Write and Close Buffer',
 \ }
 " https://stackoverflow.com/a/60948057
 noremap <leader>bo :%bd\|e#\|bd#<cr>\|'"
 nnoremap <leader>bW :call WriteAndCloseBuffer()<CR>
 
 
-": <leader>c 
+": <leader>c
 let g:which_key_map['c'] = {
   \ 'name': '+code',
   \ 'h': ['UndotreeToggle', 'Undo Explorer'],
@@ -73,20 +73,24 @@ imap <C-/> <Esc>VgcA
 let g:which_key_map['f'] = {
   \ 'name': '+file/find',
   \ 'b': ['CtrlPBuffer', 'Buffers'],
-  \ 'e': 'Explorer (Root Dir)',
+  \ 'e': 'Explorer (root dir)',
   \ 'E': 'Explorer (cwd)',
-  \ 'f': 'Find Files (Root Dir)',
+  \ 'f': 'Find Files (root dir)',
   \ 'F': 'Find Files (cwd)',
   \ 'n': ['enew', 'New File'],
+  \ 'o': 'Open dirvish (Directory of the Current File)',
+  \ 'O': 'Open dirvish (root dir)',
   \ 'r': 'Recent',
   \ 'R': 'Recent (cwd)',
-  \ 't': ['terminal', 'Terminal (Root Dir)'],
+  \ 't': ['terminal', 'Terminal (root dir)'],
   \ 'T': 'Terminal (cwd)',
 \ }
 nnoremap <leader>fe :execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>fE :Dirvish %:h<CR>
 nnoremap <leader>ff :execute 'CtrlP ' . GetRootDir()<CR>
 nnoremap <leader>fF :CtrlP %:h<CR>
+nnoremap <leader>fo :Dirvish %:h<CR>
+nnoremap <leader>fO :execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>fr :execute 'CtrlPMRU ' . GetRootDir()<CR>
 nnoremap <leader>fR :CtrlPMRU %:h<CR>
 " https://vi.stackexchange.com/a/14533
@@ -97,22 +101,22 @@ nnoremap <leader>fT :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR
 let g:which_key_map['w'] = {
   \ 'name': '+window',
   \ 'd': ['<C-W>c', 'Delete Window'],
-  \ 'h': ['<C-W>h', 'Go to the left window'],
-  \ 'j': ['<C-W>j', 'Go to the down window'],
-  \ 'k': ['<C-W>k', 'Go to the up window'],
-  \ 'l': ['<C-W>l', 'Go to the right window'],
-  \ 'o': ['only', 'Close all other windows'],
-  \ 's': ['<C-W>s', 'Split window'],
-  \ 't': [':tab sball', 'Break out into a new tab'],
+  \ 'h': ['<C-W>h', 'Go to the Left window'],
+  \ 'j': ['<C-W>j', 'Go to the Down window'],
+  \ 'k': ['<C-W>k', 'Go to the Up Window'],
+  \ 'l': ['<C-W>l', 'Go to the Right Window'],
+  \ 'o': ['only', 'Close All Other Windows'],
+  \ 's': ['<C-W>s', 'Split Window'],
+  \ 't': [':tab sball', 'Break Out Into a New Tab'],
   \ '<Tab>': [':tab sball', 'which_key_ignore'],
-  \ 'v': ['<C-W>v', 'Split window vertically'],
-  \ 'w': ['<C-W>', 'Switch windows'],
-  \ 'x': ['<C-W>x', 'Swap current with next'],
-  \ '+': [':resize +5', 'Increase height'],
-  \ '-': [':resize -5', 'Decrease height'],
-  \ '<': ['<C-W>5<', 'Decrease width'],
-  \ '=': ['<C-W>=', 'Equally high and wide'],
-  \ '>': ['<C-W>5>', 'Increase width'],
+  \ 'v': ['<C-W>v', 'Split Window Vertically'],
+  \ 'w': ['<C-W>', 'Switch Windows'],
+  \ 'x': ['<C-W>x', 'Swap Current with Next'],
+  \ '+': [':resize +5', 'Increase Height'],
+  \ '-': [':resize -5', 'Decrease Height'],
+  \ '<': ['<C-W>5<', 'Decrease Width'],
+  \ '=': ['<C-W>=', 'Equally High and Wide'],
+  \ '>': ['<C-W>5>', 'Increase Width'],
 \ }
 
 
@@ -120,14 +124,14 @@ let g:which_key_map['w'] = {
 let g:which_key_map['<Tab>'] = {
   \ 'name': '+tab',
   \ '<Tab>': ['tabnew', 'New Tab'],
-  \ 'e': [':tabnew | :Dirvish', 'Tab with Explorer (Root Dir)'],
+  \ 'e': [':tabnew | :Dirvish', 'Tab with Explorer (root dir)'],
   \ 'E': 'Tab with Explorer (cwd)',
   \ 'd': ['tabclose', 'Delete Tab'],
-  \ 'h': ['tabprevious', 'Go to the left tab'],
-  \ 'l': ['tabnext', 'Go to the right tab'],
-  \ 'o': ['tabonly', 'Close all other tabs'],
+  \ 'h': ['tabprevious', 'Go to the Left Tab'],
+  \ 'l': ['tabnext', 'Go to the Right Tab'],
+  \ 'o': ['tabonly', 'Close All Other Tabs'],
   \ 'w': ['tabonly', 'which_key_ignore'],
-  \ '`': ['tabfirst', 'First tabs'],
+  \ '`': ['tabfirst', 'First Tabs'],
   \ '1': [':tabnext 1', 'which_key_ignore'],
   \ '2': [':tabnext 2', 'which_key_ignore'],
   \ '3': [':tabnext 3', 'which_key_ignore'],
