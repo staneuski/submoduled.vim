@@ -18,10 +18,14 @@ set termguicolors
 colorscheme tokyonight
 ": }}}
 
-": Syntax {{{
+": filetype {{{
+": EasyBuild
+autocmd BufNewFile,BufRead *.eb set filetype=python
+
 ": OpenFOAM
-autocmd BufNewFile,BufRead *.eb set syntax=python
-autocmd BufNewFile,BufRead *.ges,*.slurm set syntax=bash
-autocmd BufNewFile,BufRead *.orig,*Dict,*Properties,*Properties.*,*Fn,fv* set syntax=cpp
-autocmd BufNewFile,BufRead *.pvsm* set syntax=xml
+autocmd BufNewFile,BufRead *.ges,*.slurm set filetype=bash
+autocmd BufNewFile,BufRead *.orig,*Dict,*Dict.*,*Properties,*Properties.*,*Fn,fv* set filetype=cpp
+
+": ParaView
+autocmd BufNewFile,BufRead *.pvsm* set filetype=xml
 ": }}}
