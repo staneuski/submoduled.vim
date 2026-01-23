@@ -6,6 +6,12 @@ else
   let g:loaded_submoduled_base = 1
 endif
 
+function! RequirePackAdd(plugin, is_loaded)
+  if !exists(a:is_loaded) || get(g:, a:is_loaded, 0) == 0
+    execute 'packadd ' . a:plugin
+  endif
+endfunction
+
 ": Full colour support {{{
 "   https://github.com/kovidgoyal/kitty/blob/master/docs/faq.rst#using-a-color-theme-with-a-background-color-does-not-work-well-in-vim
 "   https://vim-jp.org/vimdoc-en/term.html
@@ -351,6 +357,15 @@ let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1
 
 let g:dirvish_mode = ':sort ,^.*[\/],'
+
+function! LoadDirvishAndOpen()
+  if !exists('g:loaded_dirvish')
+    unmap -
+  endif
+  packadd dirvish
+  Dirvish %:h
+endfunction
+nnoremap <silent> - :call LoadDirvishAndOpen()<CR>
 ": }}}
 
 ": unblevable/quick-scope.git {{{

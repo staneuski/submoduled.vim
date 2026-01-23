@@ -2,7 +2,7 @@
 	path = pack/base/start/cool
 	url = https://github.com/romainl/vim-cool.git
 [submodule "pack/base/start/dirvish"]
-	path = pack/base/start/dirvish
+	path = pack/base/opt/dirvish
 	url = https://github.com/justinmk/vim-dirvish.git
 [submodule "pack/base/start/eunch"]
 	path = pack/base/start/eunch

@@ -33,8 +33,8 @@ let g:which_key_map = {
   \ '|': ['<C-W>v', 'Split Window Right'],
   \ ' ': 'Find Files (root dir)',
 \ }
-nnoremap <leader>e :execute 'Dirvish ' . GetRootDir()<CR>
-nnoremap <leader>E :Dirvish %:h<CR>
+nnoremap <leader>e :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader>E :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
 nnoremap <leader><Space> :execute 'CtrlP ' . GetRootDir()<CR>
 
 ": buffer
@@ -42,8 +42,8 @@ function! WriteAndCloseBuffer()
   update!
   let cwd = expand('%:h')
   bdelete!
+  call RequirePackAdd('dirvish', 'g:loaded_dirvish')
   execute 'Dirvish ' . cwd
-  endif
 endfunction
 let g:which_key_map['b'] = {
   \ 'name': '+buffer',
@@ -85,12 +85,12 @@ let g:which_key_map['f'] = {
   \ 't': ['terminal', 'Terminal (root dir)'],
   \ 'T': 'Terminal (cwd)',
 \ }
-nnoremap <leader>fe :execute 'Dirvish ' . GetRootDir()<CR>
-nnoremap <leader>fE :Dirvish %:h<CR>
+nnoremap <leader>fe :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader>fE :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
 nnoremap <leader>ff :execute 'CtrlP ' . GetRootDir()<CR>
 nnoremap <leader>fF :CtrlP %:h<CR>
-nnoremap <leader>fo :Dirvish %:h<CR>
-nnoremap <leader>fO :execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader>fo :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
+nnoremap <leader>fO execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>fr :execute 'CtrlPMRU ' . GetRootDir()<CR>
 nnoremap <leader>fR :CtrlPMRU %:h<CR>
 " https://vi.stackexchange.com/a/14533
@@ -143,7 +143,7 @@ let g:which_key_map['<Tab>'] = {
   \ '9': [':tabnext 9', 'which_key_ignore'],
   \ '0': ['tablast', 'Last tab'],
 \ }
-nnoremap <leader><tab>E :tabnew \| :execute 'Dirvish ' . GetRootDir()<CR>
+nnoremap <leader><tab>E :tabnew <Bar> :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> :execute 'Dirvish ' . GetRootDir()<CR>
 
 ": quit/session
 let g:prosession_dir = expand(g:datadir . "/prosession")
