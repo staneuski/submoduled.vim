@@ -35,7 +35,7 @@ let g:which_key_map = {
 \ }
 nnoremap <leader>e :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>E :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
-nnoremap <leader><Space> :execute 'CtrlP ' . GetRootDir()<CR>
+nnoremap <leader><Space> :call RequirePackAdd('ctrlp', 'g:loaded_ctrlp') <Bar> execute 'CtrlP ' . GetRootDir()<CR>
 
 ": buffer
 function! WriteAndCloseBuffer()
@@ -87,12 +87,12 @@ let g:which_key_map['f'] = {
 \ }
 nnoremap <leader>fe :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> execute 'Dirvish ' . GetRootDir()<CR>
 nnoremap <leader>fE :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
-nnoremap <leader>ff :execute 'CtrlP ' . GetRootDir()<CR>
-nnoremap <leader>fF :CtrlP %:h<CR>
+nnoremap <leader>ff :call RequirePackAdd('ctrlp', 'g:loaded_ctrlp') <Bar> execute 'CtrlP ' . GetRootDir()<CR>
+nnoremap <leader>fF :call RequirePackAdd('ctrlp', 'g:loaded_ctrlp') <Bar> CtrlP %:h<CR>
 nnoremap <leader>fo :call RequirePackAdd('dirvish', 'g:loaded_dirvish') <Bar> Dirvish %:h<CR>
 nnoremap <leader>fO execute 'Dirvish ' . GetRootDir()<CR>
-nnoremap <leader>fr :execute 'CtrlPMRU ' . GetRootDir()<CR>
-nnoremap <leader>fR :CtrlPMRU %:h<CR>
+nnoremap <leader>fr :call RequirePackAdd('ctrlp', 'g:loaded_ctrlp') <Bar> execute 'CtrlPMRU ' . GetRootDir()<CR>
+nnoremap <leader>fR :call RequirePackAdd('ctrlp', 'g:loaded_ctrlp') <Bar> CtrlPMRU %:h<CR>
 " https://vi.stackexchange.com/a/14533
 nnoremap <leader>fT :let $VIM_DIR=expand('%:p:h')<CR>:terminal<CR>cd $VIM_DIR<CR> 
 
