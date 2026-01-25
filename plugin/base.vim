@@ -363,7 +363,12 @@ function! LoadDirvishAndOpen()
     unmap -
   endif
   packadd dirvish
-  Dirvish %:h
+
+  let l:dir = expand('%:p:h')
+  if empty(l:dir)
+    let l:dir = getcwd()
+  endif
+  execute 'Dirvish' fnameescape(l:dir)
 endfunction
 nnoremap <silent> - :call LoadDirvishAndOpen()<CR>
 ": }}}
