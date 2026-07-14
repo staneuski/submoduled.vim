@@ -47,3 +47,6 @@
 [submodule "pack/core/start/which-key"]
 	path = pack/core/start/which-key
 	url = https://github.com/liuchengxu/vim-which-key.git
+[submodule "pack/base/opt/dirvish-dovish"]
+	path = pack/base/opt/dirvish-dovish
+	url = https://github.com/roginfarrer/vim-dirvish-dovish.git

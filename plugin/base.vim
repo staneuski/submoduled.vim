@@ -363,6 +363,7 @@ function! LoadDirvishAndOpen()
     unmap -
   endif
   packadd dirvish
+  packadd dirvish-dovish
 
   let l:dir = expand('%:p:h')
   if empty(l:dir)
@@ -371,6 +372,15 @@ function! LoadDirvishAndOpen()
   execute 'Dirvish' fnameescape(l:dir)
 endfunction
 nnoremap <silent> - :call LoadDirvishAndOpen()<CR>
+": }}}
+
+": justinmk/vim-dirvish-dovish {{{
+if !exists('g:DovishDelete')
+  function! s:DirvishDelete(target) abort
+    return 'rm -rf ' . shellescape(a:target)
+  endfunction
+  let g:DovishDelete = function('s:DirvishDelete')
+endif
 ": }}}
 
 ": unblevable/quick-scope.git {{{
