@@ -13,6 +13,9 @@
 [submodule "pack/base/start/lastplace"]
 	path = pack/base/start/lastplace
 	url = https://github.com/farmergreg/vim-lastplace.git
+[submodule "pack/base/start/move"]
+	path = pack/base/start/move
+	url = https://github.com/matze/vim-move.git
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
