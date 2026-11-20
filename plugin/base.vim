@@ -201,12 +201,12 @@ xnoremap p P
 " Prevent common mistake of pressing q: instead :q
 map q: :q
 
-" Make a simple "search" text object.
+" Make a simple "search" text object, on `gs` (`s` is vim-sneak's).
 " http://vim.wikia.com/wiki/Copy_or_change_search_hit
-" It allows for replacing search matches with cs and then /././.
-vnoremap <silent> s //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
+" It allows for replacing search matches with cgs and then /././.
+xnoremap <silent> gs //e<C-r>=&selection=='exclusive'?'+1':''<CR><CR>
       \:<C-u>call histdel('search',-1)<Bar>let @/=histget('search',-1)<CR>gv
-omap s :normal vs<CR>
+omap gs :normal vgs<CR>
 
 " Disable writebackup because some tools have issues with it:
 " https://github.com/neoclide/coc.nvim/issues/649
