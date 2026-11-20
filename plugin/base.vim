@@ -55,12 +55,6 @@ let &t_ut=''
 
 ": https://github.com/sheerun/vimrc/blob/73e4c4606bf54f0f22534afcb2320471566fbd4a/plugin/vimrc.vim#L148-L356 {{{
 
-" Indent using two spaces.
-if &tabstop == 8 && &shiftwidth == 8
-  set tabstop=2
-  set shiftwidth=2
-endif
-
 " Enable undofile and set undodir and backupdir
 let s:basedatadir = has("win32") ? "$APPDATA"
   \ : isdirectory($HOME . "/Library") ? "$HOME/Library"
@@ -122,9 +116,6 @@ set number relativenumber
 set noerrorbells
 set visualbell
 
-" Don't parse modelines (google "vim modeline vulnerability").
-set nomodeline
-
 " Folding (modified)
 set foldmethod=indent
 set foldnestmax=3 "fold up to 3 levels
@@ -149,9 +140,6 @@ if &directory =~# '^\.,'
     let &directory = expand('$HOME/Library/Autosave Information') . '//,' . &directory
   endif
 endif
-
-" Save up to 100 marks, enable capital marks.
-set viminfo='100,f1
 
 " Enable search highlighting.
 set hlsearch
@@ -208,15 +196,7 @@ vnoremap <silent> y y`]
 nnoremap <silent> p p`]
 
 " Make sure pasting in visual mode doesn't replace paste buffer
-function! RestoreRegister()
-  let @" = s:restore_reg
-  return ''
-endfunction
-function! s:Repl()
-  let s:restore_reg = @"
-  return "p@=RestoreRegister()\<cr>"
-endfunction
-vmap <silent> <expr> p <sid>Repl()
+xnoremap p P
 
 " Prevent common mistake of pressing q: instead :q
 map q: :q
@@ -242,36 +222,13 @@ au BufEnter,CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime
 if has("patch-8.1.1564")
   set signcolumn=number
 endif
-
-" Change default theme for lightline to match default for colorscheme
-if !exists("g:lightline")
-  let g:lightline = { 'colorscheme': 'powerlineish' }
-end
-
-" Also set better lightline layout
-if !has_key(g:lightline, 'active')
-  let g:lightline['active'] = {
-    \   'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']],
-    \   'right': [ [], [ 'gitbranch' ], [ 'filetype' ]]
-    \ }
-  let g:lightline['component'] = { 'filetype': '%{&filetype}' }
-  let g:lightline['component_function'] = { 'gitbranch': 'fugitive#head' }
-endif
 :" }}}
 
 ": General settings {{{
-set langnoremap
-
-": Enable filetype plugins
-filetype indent plugin on
-
 ": Height of the command bar
 set cmdheight=1
 
 set whichwrap+=<,>,h,l
-
-": Highlight current line
-set cursorline
 
 ": Don't redraw while executing macros (good performance config)
 set lazyredraw
@@ -299,9 +256,6 @@ endif
 ": }}}
 
 ": File settings {{{
-": Set utf-8 as standard encoding and en_US as the standard language
-set encoding=utf8
-
 ": Turn backup off
 " set nobackup
 " set nowb
@@ -309,10 +263,8 @@ set encoding=utf8
 ": }}}
 
 ": Text, tab and indent related {{{
-": Use spaces instead of tabs
+": Fallback indentation; sleuth overrides per-buffer
 set expandtab
-
-": 1 tab == 4 spaces
 set shiftwidth=4
 set tabstop=4
 
@@ -353,8 +305,4 @@ if !exists('g:DovishDelete')
   endfunction
   let g:DovishDelete = function('s:DirvishDelete')
 endif
-": }}}
-
-": unblevable/quick-scope.git {{{
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
 ": }}}

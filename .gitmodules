@@ -22,6 +22,9 @@
 [submodule "pack/base/start/sensible"]
 	path = pack/base/start/sensible
 	url = https://github.com/tpope/vim-sensible.git
+[submodule "pack/base/start/sleuth"]
+	path = pack/base/start/sleuth
+	url = https://github.com/tpope/vim-sleuth.git
 [submodule "pack/base/start/sneak"]
 	path = pack/base/start/sneak
 	url = https://github.com/justinmk/vim-sneak.git
