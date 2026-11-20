@@ -35,26 +35,11 @@ if v:version > 800
   let &t_RF = "\e]10;?\e\\"
   let &t_RB = "\e]11;?\e\\"
 
-  ": Bracketed paste
-  let &t_BE = "\e[?2004h"
-  let &t_BD = "\e[?2004l"
-  let &t_PS = "\e[200~"
-  let &t_PE = "\e[201~"
-
-  ": Cursor control
+  ": Cursor control (shape in insert/replace/normal: see terminus)
   let &t_RC = "\e[?12$p"
   let &t_SH = "\e[%d q"
   let &t_RS = "\eP$q q\e\\"
-  let &t_SI = "\e[5 q"
-  let &t_SR = "\e[3 q"
-  let &t_EI = "\e[1 q"
   let &t_VS = "\e[?12l"
-
-  ": Focus tracking
-  let &t_fe = "\e[?1004h"
-  let &t_fd = "\e[?1004l"
-  execute "set <FocusGained>=\<Esc>[I"
-  execute "set <FocusLost>=\<Esc>[O"
 
   ": Window title
   let &t_ST = "\e[22;2t"
@@ -144,9 +129,6 @@ set nomodeline
 set foldmethod=indent
 set foldnestmax=3 "fold up to 3 levels
 set nofoldenable "do not fold by default
-
-" Enable mouse for scrolling and window resizing.
-set mouse=a
 
 " This is needed to avoid swapfile warning when auto-reloading
 set shortmess+=A
@@ -254,7 +236,7 @@ set nowritebackup
 set updatetime=300
 
 " Auto reload if file was changed somewhere else (for autoread)
-au FocusGained,BufEnter,CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime | endif
+au BufEnter,CursorHold,CursorHoldI * if !bufexists("[Command Line]") | checktime | endif
 
 " Merge signcolumn with number line (if supported)
 if has("patch-8.1.1564")
@@ -279,13 +261,6 @@ endif
 
 ": General settings {{{
 set langnoremap
-
-": https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes
-let &t_SI.="\e[5 q" "SI = INSERT mode
-let &t_EI.="\e[1 q" "EI = NORMAL mode (ELSE)
-if v:version > 800
-  let &t_SR.="\e[4 q" "SR = REPLACE mode
-endif
 
 ": Enable filetype plugins
 filetype indent plugin on
@@ -314,12 +289,9 @@ set mat=2
 set t_vb=
 set tm=500
 
-": Mouse support
-if !has('nvim')
-  set ttymouse=sgr
-  if v:version > 800
-    set balloonevalterm
-  endif
+": Mouse support (mouse/ttymouse: see terminus)
+if !has('nvim') && v:version > 800
+  set balloonevalterm
 endif
 
 ": Set regular expression engine automatically
