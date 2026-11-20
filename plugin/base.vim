@@ -66,10 +66,11 @@ let &undodir = expand(g:datadir) . '/undo//'
 set undofile
 
 " Automatically create directories for backup and undo files.
-if !isdirectory(expand(g:datadir))
-  call system("mkdir -p " . expand(&backupdir))
-  call system("mkdir -p " . expand(&undodir))
-end
+for s:dir in [expand(g:datadir) . '/backup', expand(g:datadir) . '/undo']
+  if !isdirectory(s:dir)
+    call mkdir(s:dir, 'p', 0700)
+  endif
+endfor
 
 " Keep flags when repeating last substitute command.
 nnoremap & :&&<CR>
