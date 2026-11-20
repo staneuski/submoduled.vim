@@ -16,6 +16,9 @@
 [submodule "pack/base/start/polyglot"]
 	path = pack/base/start/polyglot
 	url = https://github.com/sheerun/vim-polyglot.git
+[submodule "pack/base/start/repeat"]
+	path = pack/base/start/repeat
+	url = https://github.com/tpope/vim-repeat.git
 [submodule "pack/base/start/rsi"]
 	path = pack/base/start/rsi
 	url = https://github.com/tpope/vim-rsi.git
